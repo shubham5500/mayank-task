@@ -2,6 +2,8 @@ import './App.scss';
 import SideNav from "./components/SideNav/SideNav";
 import NavigationBar from "./components/NavigationBar/NavigationBar";
 import {Component} from "react";
+import Home from "./pages/Home/Home";
+import {fetchUtil} from "./utils/helper";
 
 class App extends Component {
 
@@ -12,16 +14,25 @@ class App extends Component {
         }
     }
 
+    componentDidMount() {
+        this.getUser();
+    }
+
     toggleNav = () => {
-        console.log('asda')
         this.setState((state) => {
             const {navToggle} = state;
             return {
                 ...state,
                 navToggle: !navToggle
             }
-        }, () => {
-            console.log(this.state)
+        })
+    }
+
+    getUser = () => {
+        fetchUtil('users', {
+            method: 'GET'
+        }).then((data) => {
+            console.log('-------------->', data)
         })
     }
 
@@ -30,7 +41,7 @@ class App extends Component {
         return (
             <div className="App">
                 <NavigationBar toggle={toggleNav}/>
-                <SideNav toggleState={navToggle}/>
+                <Home toggleState={navToggle}/>
             </div>
         )
     }

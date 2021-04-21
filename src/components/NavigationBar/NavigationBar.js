@@ -1,16 +1,17 @@
-import React, {Component} from 'react';
-import {Navbar, Nav, Form, Button} from 'react-bootstrap';
+import React from 'react';
+import {Navbar} from 'react-bootstrap';
 import './NavigationBar.scss'
+
 const NavigationBar = ({toggle}) => {
-        return (
-            <Navbar bg="light" variant="dark">
-                <i className={`fas fa-bars fa-2x mr-3`} onClick={toggle}/>
-                <Navbar.Brand href="#home">Navbar</Navbar.Brand>
-                <div className={'ml-auto'}>
-                    <i className="fas fa-bell fa-2x"/>
-                </div>
-            </Navbar>
-        );
+    return (
+        <Navbar bg="light" variant="dark">
+            <i className={`fas fa-bars fa-2x mr-3 cursor-pointer`} onClick={toggle}/>
+            <Navbar.Brand className={'text-dark'} href="#home"><i className={`fab fa-github fa-2x mr-3 cursor-pointer`}/></Navbar.Brand>
+            <div className={'ml-auto'}>
+                <i className="fas fa-bell fa-2x"/>
+            </div>
+        </Navbar>
+    );
 }
 
 export default NavigationBar;

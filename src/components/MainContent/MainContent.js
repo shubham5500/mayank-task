@@ -10,7 +10,8 @@ const MainContent = (props) => {
                         <Col md={6}>
                             <div className="panel panel-danger">
                                 <div className="panel-heading">
-                                    Panel 1
+                                    {/*<a href="https://github.com/login/oauth/authorize?scope=user:email&client_id=1ec38c7fb91d3f079554">Click here</a>*/}
+
                                 </div>
                                 <div className="panel-body">
                                     content body
