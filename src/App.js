@@ -1,9 +1,9 @@
 import './App.scss';
-import SideNav from "./components/SideNav/SideNav";
 import NavigationBar from "./components/NavigationBar/NavigationBar";
-import {Component} from "react";
-import Home from "./pages/Home/Home";
-import {fetchUtil} from "./utils/helper";
+import React, {Component} from "react";
+import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
+import SideNav from "./components/SideNav/SideNav";
+import Users from "./pages/Users/Users";
 
 class App extends Component {
 
@@ -12,10 +12,6 @@ class App extends Component {
         this.state = {
             navToggle: false
         }
-    }
-
-    componentDidMount() {
-        this.getUser();
     }
 
     toggleNav = () => {
@@ -28,21 +24,20 @@ class App extends Component {
         })
     }
 
-    getUser = () => {
-        fetchUtil('users', {
-            method: 'GET'
-        }).then((data) => {
-            console.log('-------------->', data)
-        })
-    }
-
     render() {
         const {toggleNav, state: {navToggle}} = this;
         return (
-            <div className="App">
-                <NavigationBar toggle={toggleNav}/>
-                <Home toggleState={navToggle}/>
-            </div>
+            <Router>
+                <div className="App">
+                    <NavigationBar toggle={toggleNav}/>
+                    <SideNav toggleState={navToggle}
+                             children={<Switch>
+                                 <Route path="/users">
+                                     <Users/>
+                                 </Route>
+                             </Switch>}/>
+                </div>
+            </Router>
         )
     }
 }

@@ -1,5 +1,6 @@
 import React from 'react';
 import './SideNav.scss'
+import {Link} from "react-router-dom";
 
 const SideNav = ({toggleState, children}) => {
     return (
@@ -8,7 +9,7 @@ const SideNav = ({toggleState, children}) => {
                 <nav>
                     <ul className="sidebar-nav nav">
                         <li className="sidebar-brand">
-                            <a href="#home"><span className="fas fa-home solo">Home</span></a>
+                            <Link to="/users"><span className="fas fa-users solo">Users</span></Link>
                         </li>
                     </ul>
                 </nav>
