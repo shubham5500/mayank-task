@@ -3,7 +3,7 @@ import {Col, Container, Row} from "react-bootstrap";
 
 const MainContent = (props) => {
     return (
-        <div id="page-content-wrapper">
+        <div className={'page-content-wrapper'}>
             <div className="page-content">
                 <Container fluid={true}>
                     <Row>

@@ -4,9 +4,9 @@ import MainContent from "../MainContent/MainContent";
 
 const SideNav = ({toggleState}) => {
     return (
-        <div id={`wrapper`} className={`${toggleState ? 'active' : ''}`}>
-            <div id="sidebar-wrapper">
-                <nav id="spy">
+        <div className={`wrapper ${toggleState ? 'active' : ''}`}>
+            <div className={'sidebar-wrapper'}>
+                <nav>
                     <ul className="sidebar-nav nav">
                         <li className="sidebar-brand">
                             <a href="#home"><span className="fa fa-home solo">Home</span></a>
