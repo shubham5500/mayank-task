@@ -10,3 +10,14 @@
   color: white;
   font-weight: bold;
 }
+
+.dropleft .dropdown-toggle::before {
+  display: inline-block;
+  margin-right: unset;
+  vertical-align: unset;
+  content: "\f0f3";
+  border-top: none;
+  border-right: none;
+  border-bottom: none;
+  cursor: pointer;
+}
