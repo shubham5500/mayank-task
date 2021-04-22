@@ -1,45 +1,30 @@
 import './App.scss';
 import NavigationBar from "./components/NavigationBar/NavigationBar";
-import React, {Component} from "react";
+import React, {useState} from "react";
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import SideNav from "./components/SideNav/SideNav";
 import Users from "./pages/Users/Users";
+import Organisations from "./pages/Organisations/Organisations";
 
-class App extends Component {
+function App() {
+    const [navToggle, setNavToggle] = useState(false)
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            navToggle: false
-        }
-    }
+    return (
+        <Router>
+            <div className="App">
+                <NavigationBar toggle={() => setNavToggle(!navToggle)}/>
+                <SideNav toggleState={navToggle}
+                         children={<Switch>
+                             <Route path="/users">
+                                 <Users/>
+                             </Route>
+                             <Route path="/organisations">
+                                 <Organisations/>
+                             </Route>
+                         </Switch>}/>
+            </div>
+        </Router>)
 
-    toggleNav = () => {
-        this.setState((state) => {
-            const {navToggle} = state;
-            return {
-                ...state,
-                navToggle: !navToggle
-            }
-        })
-    }
-
-    render() {
-        const {toggleNav, state: {navToggle}} = this;
-        return (
-            <Router>
-                <div className="App">
-                    <NavigationBar toggle={toggleNav}/>
-                    <SideNav toggleState={navToggle}
-                             children={<Switch>
-                                 <Route path="/users">
-                                     <Users/>
-                                 </Route>
-                             </Switch>}/>
-                </div>
-            </Router>
-        )
-    }
 }
 
 export default App;

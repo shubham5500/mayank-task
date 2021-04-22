@@ -8,8 +8,13 @@ const SideNav = ({toggleState, children}) => {
             <div className={'sidebar-wrapper'}>
                 <nav>
                     <ul className="sidebar-nav nav">
-                        <li className="sidebar-brand">
-                            <Link to="/users"><span className="fas fa-users solo">Users</span></Link>
+                        <li className="sidebar-brand d-flex flex-wrap align-items-center w-100">
+                            <Link to="/users">
+                                <i className="fas fa-users solo mx-3"/>Users
+                            </Link>
+                        </li>
+                        <li className="sidebar-brand d-flex flex-wrap align-items-center w-100">
+                            <Link to="/organisations"><i className="fas fa-building mx-3"/>Organisations</Link>
                         </li>
                     </ul>
                 </nav>
