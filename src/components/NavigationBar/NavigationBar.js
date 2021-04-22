@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {Button, ButtonGroup, Dropdown, Navbar} from 'react-bootstrap';
+import {ButtonGroup, Dropdown, Navbar} from 'react-bootstrap';
 import './NavigationBar.scss'
 import {CLIENT_ID, CLIENT_SECRET} from "../../utils/variable";
 import {fetchUtil} from "../../utils/helper";
